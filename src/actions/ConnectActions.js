@@ -1,11 +1,14 @@
 import { JOIN_ROOM } from '../constants/ActionTypes'
 
-export function join() {
+export function join(path) {
   return {
-    type: JOIN_ROOM
+    type: JOIN_ROOM,
+    data: {
+      path: path
+    }
   }
 }
 
-export function joinRoom() {
-  return dispatch => dispatch(join())
+export function joinRoom(path) {
+  return dispatch => dispatch(join(path))
 }

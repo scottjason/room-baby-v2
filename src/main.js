@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
 import { configStore } from './stores';
-import App from './components/App.js'
+import App from './containers/App.js'
 
 const Root = connect()(App)
 const store = configStore()

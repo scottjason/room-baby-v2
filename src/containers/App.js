@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import Landing from './Landing'
+import Landing from '../components/Landing'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import styles from '../main.styl'
@@ -10,10 +10,10 @@ export default class App extends React.Component {
    super(props, context)
   }
   render() {
-    const { actions } = this.props    
+    const { actions, connect } = this.props
     return (
       <div className={styles.app}>
-        <Landing actions={actions} />
+        <Landing actions={actions} connect={connect} />
       </div>
     )
   }
@@ -24,7 +24,9 @@ App.propTypes = {
 }
 
 function mapStateToProps(state) {
-  return {}
+  return {
+    connect: state.connect
+  }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -36,4 +38,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(App)

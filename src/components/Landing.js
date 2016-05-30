@@ -4,26 +4,22 @@ import styles from '../styles/landing.styl'
 export default class Landing extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { roomName: props.roomName }
+    this.state = { path: props.path }
   }
   handleChange(e) {
-     this.setState({ roomName: e.target.value })    
+     this.setState({ path: e.target.value })    
   }
   onSubmit() {
     if (this.isValid()) {
-      this.props.actions.joinRoom()
+      this.props.actions.joinRoom(this.state.path)
     } else {
       console.log('invalid')
     }
   }
   isValid() {
-    return this.state.roomName.length && this.isValidPath(this.state.roomName)
-  }
-  isValidPath(str) {
-    return /^[a-zA-Z0-9-_]+$/.test(str)
+    return this.state.path.length && /^[a-zA-Z0-9-_]+$/.test(this.state.path)
   }
   render() {
-
     return (
       <div className={styles.wrap}>
 
@@ -35,7 +31,7 @@ export default class Landing extends React.Component {
           
           {/* Input */ }          
           <input type='text' 
-            value={this.state.roomName} 
+            value={this.state.path} 
             placeholder='room name' 
             onChange={this.handleChange.bind(this)}/>
           
@@ -48,5 +44,5 @@ export default class Landing extends React.Component {
   }
 }
 
-Landing.propTypes = { roomName: React.PropTypes.string }
-Landing.defaultProps = { roomName: '' }
+Landing.propTypes = { path: React.PropTypes.string }
+Landing.defaultProps = { path: '' }
