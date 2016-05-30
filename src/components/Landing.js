@@ -11,9 +11,9 @@ export default class Landing extends React.Component {
   }
   onSubmit() {
     if (this.isValid()) {
-      console.log('isValid')
+      this.props.actions.joinRoom()
     } else {
-      console.log('is invalid')
+      console.log('invalid')
     }
   }
   isValid() {
@@ -23,6 +23,7 @@ export default class Landing extends React.Component {
     return /^[a-zA-Z0-9-_]+$/.test(str)
   }
   render() {
+
     return (
       <div className={styles.wrap}>
 
