@@ -1,0 +1,69 @@
+@import 'vars.styl'
+
+.wrap
+  position absolute
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  text-align center
+  left 0
+  right 0
+  bottom 0
+  top 0
+  margin auto
+  width 70%
+  height 200px
+  max-width 600px
+  background-color $light-grey-2
+  border-radius 10px
+  .logo
+    position absolute
+    left 0
+    right 0
+    top 0    
+    margin -38px auto 0 auto
+    font-size 42px
+    font-family 'Didact Gothic', sans-serif
+    font-weight 300
+    color $sunset-orange
+    transition font-size .2s linear, margin-top .2s linear
+    @media (max-width 768px)
+      font-size 36px
+      margin-top -33px
+  .form
+    display flex
+    flex-direction column
+    height auto
+    width 50%
+    max-width 280px
+    min-width 220px    
+    input
+      padding-left 10px
+      width 100%
+      height 30px
+      border none
+      border-bottom 1px solid lighten(grey, 60%)
+      font-size 16px
+      color lighten(grey, 60%)
+      background-color transparent
+    .btn
+      display flex
+      align-items center
+      justify-content center
+      align-self flex-end
+      margin-top 5px
+      max-width 130px
+      min-width 100px
+      letter-spacing 0px
+      width 40%
+      height 35px
+      border-radius 2px
+      color white
+      background-color $sunset-orange
+      cursor pointer
+      transition font-size .2s linear, letter-spacing .2s linear
+      @media (max-width 768px)
+        font-size 14px
+      &:hover
+        letter-spacing 1px        
