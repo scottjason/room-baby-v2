@@ -23,6 +23,8 @@ export default class Landing extends React.Component {
     return (
       <div className={styles.wrap}>
 
+        <div id='videoWrap'></div>
+
         {/* Logo */ }                  
         <p className={styles.logo}>room baby</p>
         

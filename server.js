@@ -26,13 +26,21 @@ if (isDev) {
 
   app.use(middleware)
   app.use(webpackHotMiddleware(compiler))
-  app.get('*', (req, res) => {
+
+  app.get('/', (req, res) => {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')))
     res.end()
   })
+  app.get('*', (req, res) => res.redirect('/'))
 } else {
   app.use(express.static(__dirname + '/dist'))
-  app.get('*', (req, res) => res.sendFile(path.join(__dirname, 'dist/index.html')))
+  app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'dist/index.html')))
+  app.get('*', (req, res) => res.redirect('/'))
 }
 
-app.listen(port, '0.0.0.0', () => console.info('Listening on port', port))
+const server = new require('http').Server(app)
+const io = require('socket.io')(server)
+
+require('./socket')(io)
+
+server.listen(port, '0.0.0.0', () => console.log('Listening on port', port))

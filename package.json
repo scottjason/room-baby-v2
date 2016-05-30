@@ -2,7 +2,6 @@
   "name": "room-baby-v2",
   "version": "0.0.0",
   "description": "video chat, recording, file sharing, webrtc",
-  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/scottjason/room-baby-v2.git"
@@ -18,13 +17,15 @@
     "node"
   ],
   "author": "Scott Jason <scottleejason@gmail.com>",
+  "main": "server.js",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/scottjason/room-baby-v2/issues"
   },
   "homepage": "https://github.com/scottjason/room-baby-v2",
   "scripts": {
-    "start": "node server"
+    "preinstall": "rm -rf ~/.npm && npm cache clear",
+    "start": "node server.js"
   },
   "dependencies": {
     "babel-cli": "^6.4.0",
@@ -33,7 +34,8 @@
     "react-dom": "^0.14.3",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
-    "redux-thunk": "^2.1.0"
+    "redux-thunk": "^2.1.0",
+    "socket.io": "^1.4.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",

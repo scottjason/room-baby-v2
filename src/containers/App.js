@@ -3,7 +3,9 @@ import Landing from '../components/Landing'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import styles from '../main.styl'
-import * as ConnectActions from '../actions/ConnectActions';
+import * as ConnectActions from '../actions/ConnectActions'
+
+window.socket = io.connect()
 
 export default class App extends React.Component {
   constructor(props, context) {
